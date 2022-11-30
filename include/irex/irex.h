@@ -1,0 +1,114 @@
+/**
+ * This software was developed at the National Institute of Standards and Technology (NIST) by
+ * employees of the Federal Government in the course of their official duties. Pursuant to title
+ * 17 Section 105 of the United States Code, this software is not subject to copyright protection
+ * and is in the public domain. NIST assumes no responsibility  whatsoever for its use by other
+ * parties, and makes no guarantees, expressed or implied, about its quality, reliability, or any
+ * other characteristic.
+ */
+#ifndef IREX_11_H_
+#define IREX_11_H_
+
+#include <string>
+#include <vector>
+#include <cstdint>
+#include <cmath>
+#include <memory>
+
+#include "irex/structs.h"
+
+using std::string;
+
+namespace Irex
+{
+   /// Submitted libraries must override these functions.
+   class Interface
+   {
+      public:
+         virtual ~Interface() {};
+
+         /**
+          * Initialization function, called once prior to one or more calls to createTemplate() or
+          * compareTemplates().
+          *
+          * The implementation shall tolerate execution of multiple calls to this function from
+          * different processes running on the same machine. If participants wish to use the
+          * optional \a configDirectory parameter, they must say so in documentation accompanying
+          * their submission. NIST will debug if a call to this function returns a non-zero value,
+          * contacting the participant if necessary.
+          *
+          * \param[in] configDirectory A directory containing read-only configuration files and/or
+          *               runtime data files.
+          * \return An object of type Irex::ReturnStatus.
+          */
+         virtual ReturnStatus initialize(const string& configDirectory) = 0;
+
+         /**
+          * Generates a template from a vector of iris images.
+          *
+          * The implementation must be able to handle iris images having arbitrary pixel
+          * dimensions, although primary NIST tests are expected to only operate over images that
+          * are 640x480 or 640x512. If a return value of 100 or greater is returned, NIST will
+          * attempt to debug, contacting the participant if necessary.
+          *
+          * Each IrisImage has an optional *quality* field that participants are encouraged to fill
+          * in. As per *ISO/IEC 29794-6: Biometric Sample Quality*, values should be between 0 and
+          * 100 with higher values indicating better quality, or 255 indicating an inability to
+          * provide a quality score. Implementations are not required to fill in this parameter but
+          * it would be appreciated by NIST.
+          *
+          * When specified, the iris boundary variables provide estimates of the limbus center
+          * (*limbusCenterX*, *limbusCenterY*) and pupil (*pupilRadius*) and limbus
+          * (*limbusRadius*) radii. The estimates should be accurate to within a few pixels. When
+          * left unspecified, the participant is encouraged to fill in these values, as it can
+          * assist with debugging, but doing so is optional.
+          *
+          * Each IrisImage in \p irides represents a single iris image (left or right).
+          * Implementations must support the following scenarios:
+          * -# \p irides contains a single iris image.
+          * -# \p irides contains one left and one right iris.
+          * -# \p irides contains several images of the same iris.
+          * -# \p irides contains \a N images of the left iris and \a N images of the right iris.
+          *
+          * For scenarios 2-4 the \p eye parameter for each IrisImage in \p irides will always be
+          * set to either 1 (\a left) or 2 (\a right) and never 0 (\a unknown / \a undefined).
+          * Scenario 2 represents the most common operational use case and is likely to be the most
+          * tested.
+          *
+          * \param[in] irides The iris images from which to create the template.
+          * \param[in] type Whether to generate a verification or enrollment template.
+          * \param[out] templateData Template generated from the iris samples. The template's
+          *                format is proprietary and NIST will not access any part of it other to
+          *                pass it to createDatabase() and possibly store it temporarily.
+          * \return An object of type Irex::ReturnStatus.
+          */
+         virtual ReturnStatus createTemplate(const std::vector<IrisImage>& irides,
+                                             const Irex::TemplateType type,
+                                             std::vector<uint8_t>& templateData) = 0;
+
+         /**
+          * Compares two templates and outputs a dissimilarity score.
+          *
+          * If one or both of the input templates are the result of a failed template generation, the
+          * dissimilarity score is expected to be high.
+          *
+          * \param[in] verifTemplate A search template generated by a call to createTemplate().
+          * \param[in] enrolTemplate A search template generated by a call to createTemplate().
+          * \param[in] dissimilarity A measure of the distance between the two templates on
+          *                         the range [0, DBL_MAX].
+          * \return An object of type Irex::ReturnStatus.
+          */
+         virtual ReturnStatus compareTemplates(const std::vector<uint8_t>& verifTemplate,
+                                               const std::vector<uint8_t>& enrolTemplate,
+                                               double& dissimilarity) = 0;
+
+         /**
+          * Return an instance of the implementation.
+          */
+      	static std::shared_ptr<Interface> getImplementation();
+      
+   }; /* end Interface class */
+
+} /* end IREX namespace */
+
+#endif /* _IREX_11_H_ */
