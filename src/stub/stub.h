@@ -23,7 +23,7 @@ class Stub : public Irex::Interface
    
       ReturnStatus initialize(const string& configDir) override;
 
-      ReturnStatus createTemplate(const vector<Irex::IrisImage>& irides,
+      ReturnStatus createTemplate(vector<Irex::IrisImage>& irides,
                                   const Irex::TemplateType type,
                                   vector<uint8_t>& templateData) override;
     

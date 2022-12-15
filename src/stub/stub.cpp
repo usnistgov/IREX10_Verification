@@ -26,7 +26,7 @@ ReturnStatus Stub::initialize(const string& configDir)
    return ReturnCode::Success;
 }
 
-ReturnStatus Stub::createTemplate(const vector<Irex::IrisImage>& irides,
+ReturnStatus Stub::createTemplate(vector<Irex::IrisImage>& irides,
                                   const Irex::TemplateType type,
                                   vector<uint8_t>& templateData)
 {
