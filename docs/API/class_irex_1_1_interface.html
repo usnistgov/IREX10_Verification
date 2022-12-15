@@ -109,11 +109,11 @@ $(document).ready(function(){initNavTree('class_irex_1_1_interface.html',''); in
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a82c3396b02e8f8bc989d8e312f4ae1b7"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="struct_irex_1_1_return_status.html">ReturnStatus</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_irex_1_1_interface.html#a82c3396b02e8f8bc989d8e312f4ae1b7">initialize</a> (const string &amp;configDirectory)=0</td></tr>
-<tr class="memdesc:a82c3396b02e8f8bc989d8e312f4ae1b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialization function, called once prior to one or more calls to <a class="el" href="class_irex_1_1_interface.html#ab4b45a9f47066e0581dd3359b2d5205b" title="Generates a template from a vector of iris images.">createTemplate()</a> or <a class="el" href="class_irex_1_1_interface.html#a1b0e38d84b5b486eaba4df6fa7c12b91" title="Compares two templates and outputs a dissimilarity score.">compareTemplates()</a>.  <a href="class_irex_1_1_interface.html#a82c3396b02e8f8bc989d8e312f4ae1b7">More...</a><br /></td></tr>
+<tr class="memdesc:a82c3396b02e8f8bc989d8e312f4ae1b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialization function, called once prior to one or more calls to <a class="el" href="class_irex_1_1_interface.html#a3c709191c06fd48cf2a07d312257a966" title="Generates a template from a vector of iris images.">createTemplate()</a> or <a class="el" href="class_irex_1_1_interface.html#a1b0e38d84b5b486eaba4df6fa7c12b91" title="Compares two templates and outputs a dissimilarity score.">compareTemplates()</a>.  <a href="class_irex_1_1_interface.html#a82c3396b02e8f8bc989d8e312f4ae1b7">More...</a><br /></td></tr>
 <tr class="separator:a82c3396b02e8f8bc989d8e312f4ae1b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab4b45a9f47066e0581dd3359b2d5205b"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="struct_irex_1_1_return_status.html">ReturnStatus</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_irex_1_1_interface.html#ab4b45a9f47066e0581dd3359b2d5205b">createTemplate</a> (const std::vector&lt; <a class="el" href="struct_irex_1_1_iris_image.html">IrisImage</a> &gt; &amp;irides, const Irex::TemplateType type, std::vector&lt; uint8_t &gt; &amp;templateData)=0</td></tr>
-<tr class="memdesc:ab4b45a9f47066e0581dd3359b2d5205b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a template from a vector of iris images.  <a href="class_irex_1_1_interface.html#ab4b45a9f47066e0581dd3359b2d5205b">More...</a><br /></td></tr>
-<tr class="separator:ab4b45a9f47066e0581dd3359b2d5205b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c709191c06fd48cf2a07d312257a966"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="struct_irex_1_1_return_status.html">ReturnStatus</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_irex_1_1_interface.html#a3c709191c06fd48cf2a07d312257a966">createTemplate</a> (std::vector&lt; <a class="el" href="struct_irex_1_1_iris_image.html">IrisImage</a> &gt; &amp;irides, const Irex::TemplateType type, std::vector&lt; uint8_t &gt; &amp;templateData)=0</td></tr>
+<tr class="memdesc:a3c709191c06fd48cf2a07d312257a966"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a template from a vector of iris images.  <a href="class_irex_1_1_interface.html#a3c709191c06fd48cf2a07d312257a966">More...</a><br /></td></tr>
+<tr class="separator:a3c709191c06fd48cf2a07d312257a966"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1b0e38d84b5b486eaba4df6fa7c12b91"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="struct_irex_1_1_return_status.html">ReturnStatus</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_irex_1_1_interface.html#a1b0e38d84b5b486eaba4df6fa7c12b91">compareTemplates</a> (const std::vector&lt; uint8_t &gt; &amp;verifTemplate, const std::vector&lt; uint8_t &gt; &amp;enrolTemplate, double &amp;dissimilarity)=0</td></tr>
 <tr class="memdesc:a1b0e38d84b5b486eaba4df6fa7c12b91"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compares two templates and outputs a dissimilarity score.  <a href="class_irex_1_1_interface.html#a1b0e38d84b5b486eaba4df6fa7c12b91">More...</a><br /></td></tr>
 <tr class="separator:a1b0e38d84b5b486eaba4df6fa7c12b91"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -182,7 +182,7 @@ static std::shared_ptr&lt; <a class="el" href="class_irex_1_1_interface.html">In
 </table>
 </div><div class="memdoc">
 
-<p>Initialization function, called once prior to one or more calls to <a class="el" href="class_irex_1_1_interface.html#ab4b45a9f47066e0581dd3359b2d5205b" title="Generates a template from a vector of iris images.">createTemplate()</a> or <a class="el" href="class_irex_1_1_interface.html#a1b0e38d84b5b486eaba4df6fa7c12b91" title="Compares two templates and outputs a dissimilarity score.">compareTemplates()</a>. </p>
+<p>Initialization function, called once prior to one or more calls to <a class="el" href="class_irex_1_1_interface.html#a3c709191c06fd48cf2a07d312257a966" title="Generates a template from a vector of iris images.">createTemplate()</a> or <a class="el" href="class_irex_1_1_interface.html#a1b0e38d84b5b486eaba4df6fa7c12b91" title="Compares two templates and outputs a dissimilarity score.">compareTemplates()</a>. </p>
 <p >The implementation shall tolerate execution of multiple calls to this function from different processes running on the same machine. If participants wish to use the optional <em>configDirectory</em> parameter, they must say so in documentation accompanying their submission. NIST will debug if a call to this function returns a non-zero value, contacting the participant if necessary.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -194,8 +194,8 @@ static std::shared_ptr&lt; <a class="el" href="class_irex_1_1_interface.html">In
 
 </div>
 </div>
-<a id="ab4b45a9f47066e0581dd3359b2d5205b" name="ab4b45a9f47066e0581dd3359b2d5205b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab4b45a9f47066e0581dd3359b2d5205b">&#9670;&nbsp;</a></span>createTemplate()</h2>
+<a id="a3c709191c06fd48cf2a07d312257a966" name="a3c709191c06fd48cf2a07d312257a966"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3c709191c06fd48cf2a07d312257a966">&#9670;&nbsp;</a></span>createTemplate()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -206,7 +206,7 @@ static std::shared_ptr&lt; <a class="el" href="class_irex_1_1_interface.html">In
         <tr>
           <td class="memname">virtual <a class="el" href="struct_irex_1_1_return_status.html">ReturnStatus</a> createTemplate </td>
           <td>(</td>
-          <td class="paramtype">const std::vector&lt; <a class="el" href="struct_irex_1_1_iris_image.html">IrisImage</a> &gt; &amp;&#160;</td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="struct_irex_1_1_iris_image.html">IrisImage</a> &gt; &amp;&#160;</td>
           <td class="paramname"><em>irides</em>, </td>
         </tr>
         <tr>
@@ -301,8 +301,8 @@ static std::shared_ptr&lt; <a class="el" href="class_irex_1_1_interface.html">In
 <p >If one or both of the input templates are the result of a failed template generation, the dissimilarity score is expected to be high.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">verifTemplate</td><td>A verification template generated by a call to <a class="el" href="class_irex_1_1_interface.html#ab4b45a9f47066e0581dd3359b2d5205b" title="Generates a template from a vector of iris images.">createTemplate()</a>. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">enrolTemplate</td><td>An enrollment template generated by a call to <a class="el" href="class_irex_1_1_interface.html#ab4b45a9f47066e0581dd3359b2d5205b" title="Generates a template from a vector of iris images.">createTemplate()</a>. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">verifTemplate</td><td>A search template generated by a call to <a class="el" href="class_irex_1_1_interface.html#a3c709191c06fd48cf2a07d312257a966" title="Generates a template from a vector of iris images.">createTemplate()</a>. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">enrolTemplate</td><td>A search template generated by a call to <a class="el" href="class_irex_1_1_interface.html#a3c709191c06fd48cf2a07d312257a966" title="Generates a template from a vector of iris images.">createTemplate()</a>. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">dissimilarity</td><td>A measure of the distance between the two templates on the range [0, DBL_MAX]. </td></tr>
   </table>
   </dd>
