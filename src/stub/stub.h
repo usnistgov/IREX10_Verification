@@ -23,12 +23,12 @@ class Stub : public Irex::Interface
    
       ReturnStatus initialize(const string& configDir) override;
 
-      ReturnStatus createTemplate(vector<Irex::IrisImage>& irides,
+      ReturnStatus createTemplate(const vector<Irex::IrisImage>& irides,
                                   const Irex::TemplateType type,
                                   vector<uint8_t>& templateData) override;
     
-      ReturnStatus compareTemplates(const std::vector<uint8_t>& verifTemplate,
-                                    const std::vector<uint8_t>& enrolTemplate,
+      ReturnStatus compareTemplates(const vector<uint8_t>& verifTemplate,
+                                    const vector<uint8_t>& enrolTemplate,
                                     double& dissimilarity) override;
 
       static std::shared_ptr<Interface> getImplementation();
